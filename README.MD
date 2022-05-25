@@ -1,0 +1,1 @@
+# This is a Weather Dashboard for the Module 6 assignment of the UofU Coding Bootcamp. 
