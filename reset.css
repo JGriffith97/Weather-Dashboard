@@ -14,11 +14,11 @@ body {
   font-family: arial;
 }
 
-/* input, select, option, optgroup, textarea, button,
+input, select, option, optgroup, textarea, button,
 pre, code {
   font-size: 100%;
   font-family: inherit;
-} */
+}
 
 ol, ul {
   list-style: none;

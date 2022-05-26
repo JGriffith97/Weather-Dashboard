@@ -1,2 +1,13 @@
-/* Probably want to grab a reset CSS */
-/* Don't really want to change any styles until I have something to actually style */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+}
+
