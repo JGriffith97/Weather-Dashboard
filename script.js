@@ -7,8 +7,8 @@ var APIKey = "af02ea1d45601642cf73d29651dfd0dd"
 // var lat = null
 // var lon = null --- Alternative means, probably less useful to the user, and out of scope of the MVP
 var city = "West+Jordan"
-var grabUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" +  APIKey;
-// "https://api.openweathermap.org/data/2.5/onecall?appid=af02ea1d45601642cf73d29651dfd0dd"
+var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" +  APIKey;
+var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid" + APIKey
 
 console.log(grabUrl)
 
