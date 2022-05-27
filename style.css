@@ -19,7 +19,7 @@ h1 {
   background-color: silver;
 }
 
-/* All below override bootstrap defaults. */
+/* All in this group override bootstrap defaults. */
 .list-group-item:last-child {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -53,3 +53,4 @@ h1 {
   padding-left: 0;
   padding-right: 0;
 }
+/* ---------------------------------------------------------------- */
