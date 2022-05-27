@@ -11,3 +11,45 @@ h1 {
   font-size: 50px;
 }
 
+.list-group-item {
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 20px;
+  background-color: silver;
+}
+
+/* All below override bootstrap defaults. */
+.list-group-item:last-child {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.active:hover {
+  color: white;
+}
+
+.list-group-item-action:hover:active {
+  color: white;
+}
+
+.list-group-item-action:hover {
+  z-index: 1;
+  color: white;
+  text-decoration: underline;
+  background-color: rgb(0, 88, 160);
+}
+
+.list-group-item-action:active, .list-group-item-action:focus {
+  background-color: #007bff;
+}
+
+.col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}

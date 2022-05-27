@@ -18,6 +18,7 @@ function getWeather() {
 
 }
 
+// Allows the 'list-tab' (placeholder) items to show their associated data when clicked.
 $('#list-tab a').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show')
