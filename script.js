@@ -7,13 +7,15 @@ var APIKey = "af02ea1d45601642cf73d29651dfd0dd"
 // var lat = null
 // var lon = null --- Alternative means, probably less useful to the user, and out of scope of the MVP
 var city = "West+Jordan"
-var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" +  APIKey;
-var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid" + APIKey
+var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + APIKey;
+var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + "&appid" + APIKey;
 
-console.log(grabUrl)
+console.log(grabCurrentUrl)
 
+
+// For now, this is acting on page load.
 fetch(
-  grabUrl
+  grabCurrentUrl
 )
   .then(function(response) {
     if (response.status !== 200) {
