@@ -25,7 +25,7 @@
             <div class="search">
               <h2>Search for a City:</h2>
             </div>
-              <input type="text" class="form-control" placeholder="City" aria-label="city name" aria-describedby="button-addon2">
+              <input type="text" class="form-control" id ="user-city" placeholder="City" aria-label="city name" aria-describedby="button-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary w-100 mt-1" type="button" id="button-addon2">Enter</button>
                 </div>
@@ -44,15 +44,25 @@
           <div class="col-8">
             <div class="col-12 border border-dark" style="padding: 1%; padding-left: 1.4%; min-height: 360px; max-height: 360px">
               <div class="tab-content" id="nav-tabContent">
-           <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="list-home-list">a</div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="list-profile-list">b</div>
-                <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="list-messages-list">c</div>
-                <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="list-settings-list">d</div> -->
-                <!-- Again, for example -->
+                <div class="tab-pane fade show active city-date" role="tabpanel" aria-labelledby="Weather-Header">
+                  <h2 class="info-header">Weather info will show here</h2>
+                </div>
+                <div class="temp weather-info">
+                  <span>Temperature: </span>
+                </div>
+                <div class="wind weather-info">
+                  <span>Wind: </span>
+                </div>
+                <div class="humidity weather-info">
+                  <span>Humidity: </span>
+                </div>
+                <div class="uv-index weather-info">
+                  <span>UV Index: </span>
+                </div>
               </div>
             </div>
               <div class="col-12 mt-2" id="5-day-forecast">
-                <h2>Five Day Forecast:</h2>
+                <h2 class="forecast-header" >Five Day Forecast:</h2>
               </div>
                 <div id="forecast-holder">
                   <!-- cards? day of the week; weather icon; temp; wind; humidity; five days -->
