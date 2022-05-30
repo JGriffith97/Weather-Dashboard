@@ -4,9 +4,9 @@ var citiesList = document.getElementById("list-tab")
 var cityWeather = document.getElementById("nav-tabContent")
 var citySubmit = document.getElementById("button-addon2")
 var userCityInput = document.getElementById("user-city")
+var cityName = document.getElementById("weatherHead")
 
-var APIKey1 = "af02ea1d45601642cf73d29651dfd0dd"
-var APIKey2 = "6af1e54c068aac1b96a65def32f165a1"
+var APIKey = "6af1e54c068aac1b96a65def32f165a1"
 // var lat = null
 // var lon = null --- Alternative means, probably less useful to the user, and out of scope of the MVP
 
@@ -16,7 +16,7 @@ var anchorAttributes = {
 }
 
 function convertString() {
-  userInput = userCityInput.value.split(" ").join("+").toLowerCase();
+  userInput = userCityInput.value.trim().split(" ").join("+").toLowerCase();
 }
 
 
@@ -27,11 +27,12 @@ function setAttributes(element, anchorAttributes) {
 }
 
 function getCurrentWeather(grabCurrentUrl) {
-  var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&units=imperial" + "&appid=" + APIKey1
+  var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&units=imperial" + "&appid=" + APIKey
+
+// https://api.openweathermap.org/data/2.5/weather?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
   fetch(grabCurrentUrl)
   .then(function (response) {
-    console.log(response.status)
     if (response.status === 404) {
       console.log("City not found!")
     }
@@ -39,14 +40,25 @@ function getCurrentWeather(grabCurrentUrl) {
   })
   .then (function (data) {
     console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      
-    }
+      var temperature = document.getElementById("temp-span")
+      var windy = document.getElementById("wind-span")
+      var humid = document.getElementById("humidity-span")
+      var uvIndex = document.getElementById("uvindex-span")
+      // Note that naming the variable the same as the value given by the API causes issues
+
+      cityName.textContent = data.name + " " + data.weather[0].icon
+      temperature.textContent = data.main.temp
+      windy.textContent = data.wind.speed + " MPH"
+      humid.textContent = data.main.humidity + "%"
+      uvIndex.textContent = data
+
   });
 }
 
 function getFiveDay(grabForecastUrl) {
-  var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&units=imperial" + "&appid=" + APIKey2
+  var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&units=imperial" + "&appid=" + APIKey
+
+// https://api.openweathermap.org/data/2.5/forecast?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
   fetch(grabForecastUrl)
   .then(function (response) {
@@ -71,14 +83,15 @@ $('#list-tab a').on('click', function (e) {
 $(citySubmit).on('click', function (e) {
   if (userCityInput.value.length == 0) {
     console.log("Nothing here")
+    return
   }
   convertString()
-  console.log(userInput)
   e.preventDefault()
   getCurrentWeather()
   getFiveDay()
   userCityInput.value = ""
   userCityInput.placeholder = "If no information appears, city not found."
+  cityName.textContent = ""
 })
 
 // Refer to: 
