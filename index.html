@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
+    <title>Weather Dashboard</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="stylesheet" href="./reset.css"/>
@@ -21,13 +22,13 @@
       <div class="container.fluid p-1 m-4">
         <div class="row align-middle">
 
-          <div class="d-block input-group-append col-4">
+          <div class="d-block input-group-append col-3">
             <div class="search">
               <h2>Search for a City:</h2>
             </div>
               <input type="text" class="form-control" id ="user-city" placeholder="City" aria-label="city name" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary w-100 mt-1" type="button" id="button-addon2">Enter</button>
+                  <button class="btn btn-outline-secondary w-100 mt-1" type="button" id="button-addon2">Search</button>
                 </div>
             <hr>
                 <div class="col-12">   <!-- Following all added via bootstrap, with some personal styling, more of a proof of concept for me to eventually apply fetched API data. -->
@@ -41,7 +42,7 @@
                 </div>
           </div>
 
-          <div class="col-8">
+          <div class="col-9">
             <div class="col-12 border border-dark" style="padding: 1%; padding-left: 1.4%; min-height: 360px; max-height: 360px">
               <div class="tab-content" id="nav-tabContent">
                 <div class="weather-main">
@@ -64,10 +65,63 @@
               <div class="col-12 mt-2" id="5-day-forecast">
                 <h2 class="forecast-header" >Five Day Forecast:</h2>
               </div>
-                <div id="forecast-holder">
-                  <!-- cards? day of the week; weather icon; temp; wind; humidity; five days -->
+                <div class = "row justify-content-between" id="forecast-holder" >
+                    <div class="card text-white bg-dark col-sm-2" style="max-width: 16rem;">
+                      <div class="card-header"><h4 id = "day-one"></h4></div>
+                      <div class="card-body">
+                        <img class= "forecast-icon" style = "display: none" src="">
+                        <span>Temp: </span><span class="forecast-temp"></span>
+                        <br>
+                        <span>Wind: </span><span class="forecast-wind"></span>
+                        <br>
+                        <span>Humidity: </span><span class="forecast-humidity"></span>
+                      </div>
+                    </div>
+                    <div class="card text-white bg-dark col-sm-2" style="max-width: 16rem;">
+                      <div class="card-header"><h4 id = "day-two"></h4></div>
+                      <div class="card-body">
+                        <img class= "forecast-icon" style = "display: none" src="">
+                        <span>Temp: </span><span class="forecast-temp"></span>
+                        <br>
+                        <span>Wind: </span><span class="forecast-wind"></span>
+                        <br>
+                        <span>Humidity: </span><span class="forecast-humidity"></span>
+                      </div>
+                    </div>
+                    <div class="card text-white bg-dark col-sm-2" style="max-width: 16rem;">
+                      <div class="card-header"><h4 id = "day-three"></h4></div>
+                      <div class="card-body">
+                        <img class= "forecast-icon" style = "display: none" src="">
+                        <span>Temp: </span><span class="forecast-temp"></span>
+                        <br>
+                        <span>Wind: </span><span class="forecast-wind"></span>
+                        <br>
+                        <span>Humidity: </span><span class="forecast-humidity"></span>
+                      </div>
+                    </div>
+                    <div class="card text-white bg-dark col-sm-2" style="max-width: 16rem;">
+                      <div class="card-header"><h4 id = "day-four"></h4></div>
+                      <div class="card-body">
+                        <img class= "forecast-icon" style = "display: none" src="">
+                        <span>Temp: </span><span class="forecast-temp"></span>
+                        <br>
+                        <span>Wind: </span><span class="forecast-wind"></span>
+                        <br>
+                        <span>Humidity: </span><span class="forecast-humidity"></span>
+                      </div>
+                    </div>
+                    <div class="card text-white bg-dark col-sm-2" style="max-width: 16rem;">
+                      <div class="card-header"><h4 id = "day-five"></h4></div>
+                      <div class="card-body">
+                        <img class= "forecast-icon" style = "display: none" src="">
+                        <span>Temp: </span><span class="forecast-temp"></span>
+                        <br>
+                        <span>Wind: </span><span class="forecast-wind"></span>
+                        <br>
+                        <span>Humidity: </span><span class="forecast-humidity"></span>
+                      </div>
+                    </div>
                 </div>
-          </div>
 
         </div>  
       </div>
@@ -85,6 +139,7 @@
     <!-- JavaScript Bundle with Popper || Side-note, PopperJS seems useful, should look into it. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="./script.js"></script>
   </body>
 </html>

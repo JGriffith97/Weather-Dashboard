@@ -10,15 +10,14 @@ var APIKey = "6af1e54c068aac1b96a65def32f165a1"
 
 var grabOneCall;
 
+var dayPlus1 = moment().add(1, 'days').format("L");
+var dayPlus2 = moment().add(2, 'days').format("L");
+var dayPlus3 = moment().add(3, 'days').format("L");
+var dayPlus4 = moment().add(4, 'days').format("L");
+var dayPlus5 = moment().add(5, 'days').format("L");
+
 function convertString() {
-  userInput = userCityInput.value.trim().split(" ").join("+").toLowerCase();
-}
-
-
-function setAttributes(element, anchorAttributes) {
-  Object.keys(anchorAttributes).forEach(attr => {
-    element.setAttribute(attr, attributes[attr]);
-  });
+  userInput = userCityInput.value.trim().split(" ").join("+").toLowerCase() || $(".list-group-item").text();
 }
 
 function getCurrentWeather(grabCurrentUrl) {
@@ -44,11 +43,15 @@ function getCurrentWeather(grabCurrentUrl) {
     var iconCode = data.weather[0].icon
     var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png"
 
+    $(".first-line").remove()
+    $("#weather-icon").remove()
     $('#cityName').after('<img id= "weather-icon" src="">')
+
+    $('#list-tab').append('<div class="searched-city">' + data.name + '</div>')
 
     cityName.textContent = data.name + " "
     $("#weather-icon").attr("src", iconUrl)
-    temperature.textContent = data.main.temp
+    temperature.textContent = data.main.temp + "°F"
     windy.textContent = data.wind.speed + " MPH"
     humid.textContent = data.main.humidity + "%"
 
@@ -102,7 +105,34 @@ function getFiveDay(grabForecastUrl) {
   })
   .then (function (data) {
     console.log(data);
+
+    for (var i = 0; i < data.list.length; i++) {
+      // Just to make a note of an issue that cropped up, forecastIcon needed
+      // to be declared before forecastIconUrl to avoid a 404 error on the first
+      // of the five day's forecasts icons.
+      var forecastIcon = data.list[i].weather[0].icon
+      var forecastIconUrl = "http://openweathermap.org/img/w/" + forecastIcon + ".png"
+      var forecastTemp = data.list[i].main.temp
+      var forecastWind = data.list[i].wind.speed
+      var forecastHumidity = data.list[i].main.humidity
+
+      $(".forecast-icon").removeAttr("style")
+      $(".forecast-icon").eq(i).attr("src", forecastIconUrl)
+      $(".forecast-temp").eq(i).text(forecastTemp + "°F")
+      $(".forecast-wind").eq(i).text(forecastWind + " MPH")
+      $(".forecast-humidity").eq(i).text(forecastHumidity + "%")
+    }
+    $(".forecast-icon").after("<br class='first-line'>")
   })
+}
+
+function setForecastDates() {
+  $('#day-one').text(dayPlus1)
+  $('#day-two').text(dayPlus2)
+  $('#day-three').text(dayPlus3)
+  $('#day-four').text(dayPlus4)
+  $('#day-five').text(dayPlus5)
+
 }
 
 
@@ -121,10 +151,9 @@ function getFiveDay(grabForecastUrl) {
 //   })
 // }
 
-// Allows the 'list-tab' (placeholder) items to show their associated data when clicked.
-$('#list-tab a').on('click', function (e) {
-  e.preventDefault()
-  $(this).tab('show')
+
+$(savedCity).on('click', function() {
+  console.log("hello?")
 })
 
 // Click event for the submit button.
@@ -137,11 +166,13 @@ $(citySubmit).on('click', function (e) {
   e.preventDefault()
   getCurrentWeather()
   getFiveDay()
+
   userCityInput.value = ""
   userCityInput.placeholder = "If no information appears, city not found."
   cityName.textContent = ""
 })
 
+setForecastDates()
 // Refer to: 
 // https://openweathermap.org/current#name
 
