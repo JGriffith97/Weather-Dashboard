@@ -8,8 +8,8 @@ Screenshot: ![Site Screenshot](./Screenshot/Weather%20Dashboard%20Screenshot.jpe
 >
 >HTML: [HTML](./index.html)
 >
->CSS: [CSS](./style.css)
+>CSS: [CSS](./Assets/css/style.css)
 >
->Script: [Script](./script.js)
+>Script: [Script](./Assets/js/script.js)
 
 Live Site: Wait
