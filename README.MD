@@ -12,4 +12,4 @@ Screenshot: ![Site Screenshot](./Screenshot/Weather%20Dashboard%20Screenshot.jpe
 >
 >Script: [Script](./Assets/js/script.js)
 
-Live Site: Wait
+Live Site: https://jgriffith97.github.io/Weather-Dashboard/
