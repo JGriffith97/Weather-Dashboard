@@ -136,29 +136,13 @@ function setForecastDates() {
   $('#day-three').text(dayPlus3)
   $('#day-four').text(dayPlus4)
   $('#day-five').text(dayPlus5)
-
 }
 
-
-// function getOneCall(grabOneCall) {
-
-
-//   fetch(grabOneCall)
-//   .then(function (response) {
-//     if (response.status === 404) {
-//       console.log("City not found!")
-//     }
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//   })
-// }
-
-// Three parameters, click, and the dynamic element that would be selected.
+// Three parameters, click, the dynamic element that would be selected, the function.
 $(citiesList).on('click', ".searched-city", function() {
   console.log("hello?")
   // Make new function calls for this one, probably for the best.
+  // As well, need to make a function that stores the searched cities to local storage.
 })
 
 // Click event for the submit button.
