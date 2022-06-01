@@ -1,2 +1,141 @@
-/* Probably want to grab a reset CSS */
-/* Don't really want to change any styles until I have something to actually style */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  background-color: rgb(17, 73, 194);
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.forecast-header {
+  font-size: 26px;
+}
+
+.city-name {
+  font-size: 42px;
+  font-weight: 620;
+}
+
+.searched-city {
+  background-color: #007bff;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.searched-city:hover {
+  background-color:rgb(17, 73, 194);
+  cursor: pointer
+}
+
+.info-header {
+  font-size: 42px;
+}
+
+.weather-main {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.weather-info {
+  font-size: 26px;
+  margin-top: 24px
+}
+
+#uv-index-span {
+  padding: 0px 8px 0px 8px;
+}
+
+#weather-icon {
+  width: 63px;
+  height: 63px;
+  position: relative;
+}
+
+#forecast-holder {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+img {
+  height: 50px;
+  width: 50px
+}
+
+/* The two below styles are scss overrides from the reboot.scss bootstrap file. 
+Easiest way I could get at them was just to pull them down from the console. */
+a:not([href]):not([tabindex]) {
+  color: white;
+  cursor: pointer
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+  color: white;
+}
+
+/* All in this group override bootstrap defaults. */
+.list-group-item:last-child {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.active:hover {
+  color: white;
+}
+
+.list-group-item-action:hover:active {
+  color: white;
+}
+
+.list-group-item-action:hover {
+  z-index: 1;
+  color: white;
+  text-decoration: underline;
+  background-color: rgb(0, 88, 160);
+}
+
+.list-group-item-action:active, .list-group-item-action:focus {
+  background-color: #007bff;
+}
+
+.col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card-header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid silver;
+}
+
+div > h4 {
+  margin-bottom: 0.1rem;
+}
+
+div > p {
+  margin-bottom: 0.3rem;
+}
+
+.card-body {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  line-height: 2.2rem
+}
+/* ---------------------------------------------------------------- */
