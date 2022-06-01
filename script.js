@@ -9,6 +9,7 @@ var cityName = document.getElementById("cityName")
 var APIKey = "6af1e54c068aac1b96a65def32f165a1"
 
 var grabOneCall;
+var userInput;
 
 var dayPlus1 = moment().add(1, 'days').format("L");
 var dayPlus2 = moment().add(2, 'days').format("L");
@@ -17,13 +18,16 @@ var dayPlus4 = moment().add(4, 'days').format("L");
 var dayPlus5 = moment().add(5, 'days').format("L");
 
 function convertString() {
-  userInput = userCityInput.value.trim().split(" ").join("+").toLowerCase() || $(".list-group-item").text();
+  userInput = userCityInput.value.trim().split(" ").join("+").toLowerCase() || $(".searched-city").text();
 }
 
 function getCurrentWeather(grabCurrentUrl) {
   var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&units=imperial" + "&appid=" + APIKey
 // https://api.openweathermap.org/data/2.5/weather?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
+
+// Probably want to write new functions in the event you're clicking existing cities.
+// This way no new lines are created for existing cities.
   fetch(grabCurrentUrl)
   .then(function (response) {
     if (response.status === 404) {
@@ -151,9 +155,10 @@ function setForecastDates() {
 //   })
 // }
 
-
-$(savedCity).on('click', function() {
+// Three parameters, click, and the dynamic element that would be selected.
+$(citiesList).on('click', ".searched-city", function() {
   console.log("hello?")
+  // Make new function calls for this one, probably for the best.
 })
 
 // Click event for the submit button.
