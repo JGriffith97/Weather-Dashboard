@@ -46,7 +46,7 @@ function getCurrentWeatherExisting(grabCurrentUrl) {
     var uvIndex = document.getElementById("uv-index-span")
 
     var iconCode = data.weather[0].icon
-    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png"
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png"
 
     $(".first-line").remove()
     $("#weather-icon").remove()
@@ -108,7 +108,7 @@ function getFiveDayExisting(grabForecastUrl) {
       // to be declared before forecastIconUrl to avoid a 404 error on the first
       // of the five day's forecasts icons.
       var forecastIcon = data.list[i].weather[0].icon
-      var forecastIconUrl = "http://openweathermap.org/img/w/" + forecastIcon + ".png"
+      var forecastIconUrl = "https://openweathermap.org/img/w/" + forecastIcon + ".png"
       var forecastTemp = data.list[i].main.temp
       var forecastWind = data.list[i].wind.speed
       var forecastHumidity = data.list[i].main.humidity
@@ -147,7 +147,7 @@ function getCurrentWeather(grabCurrentUrl) {
     // Note that naming the variable the same as the value given by the API causes issues
 
     var iconCode = data.weather[0].icon
-    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png"
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png"
 
     $(".first-line").remove()
     $("#weather-icon").remove()
@@ -219,7 +219,7 @@ function getFiveDay(grabForecastUrl) {
       // to be declared before forecastIconUrl to avoid a 404 error on the first
       // of the five day's forecasts icons.
       var forecastIcon = data.list[i].weather[0].icon
-      var forecastIconUrl = "http://openweathermap.org/img/w/" + forecastIcon + ".png"
+      var forecastIconUrl = "https://openweathermap.org/img/w/" + forecastIcon + ".png"
       var forecastTemp = data.list[i].main.temp
       var forecastWind = data.list[i].wind.speed
       var forecastHumidity = data.list[i].main.humidity
