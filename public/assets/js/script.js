@@ -1,8 +1,11 @@
 // API use here, so at least one use of the fetch API script, possibly multiple.
 
+// require('dotenv').config();
 // This isn't going to work here, as dotenv and node are not client side utilities.
-// Gonna have to find a workaround. 
-require('dotenv').config();
+// Gonna have to find a workaround.
+// Realistically, if you wanted to hide the API key, you'd rely on sessions, and otherwise
+// make an AJAX call to your backend to get it.
+// This will require a great deal of restructuring. A matter for the future.
 
 var citiesList = document.getElementById("list-tab")
 // var cityWeather = document.getElementById("nav-tabContent")
@@ -10,7 +13,7 @@ var citySubmit = document.getElementById("button-addon2")
 var userCityInput = document.getElementById("user-city")
 var cityName = document.getElementById("cityName")
 
-var APIKey = process.env.WEATHER_API_KEY
+var APIKey = '6af1e54c068aac1b96a65def32f165a1'
 
 var savedCities = [];
 
@@ -97,7 +100,8 @@ function getCurrentWeatherExisting(grabCurrentUrl) {
 function getFiveDayExisting(grabForecastUrl) {
   var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + divString + "&units=imperial" + "&appid=" + APIKey
 
-// https://api.openweathermap.org/data/2.5/forecast?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
+  // Example of how this query will turn out:
+  // https://api.openweathermap.org/data/2.5/forecast?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
   fetch(grabForecastUrl)
   .then(function (response) {
