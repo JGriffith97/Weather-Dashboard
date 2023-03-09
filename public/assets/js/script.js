@@ -1,8 +1,11 @@
 // API use here, so at least one use of the fetch API script, possibly multiple.
+
+// This isn't going to work here, as dotenv and node are not client side utilities.
+// Gonna have to find a workaround. 
 require('dotenv').config();
 
 var citiesList = document.getElementById("list-tab")
-var cityWeather = document.getElementById("nav-tabContent")
+// var cityWeather = document.getElementById("nav-tabContent")
 var citySubmit = document.getElementById("button-addon2")
 var userCityInput = document.getElementById("user-city")
 var cityName = document.getElementById("cityName")
