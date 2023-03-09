@@ -281,7 +281,7 @@ $(citiesList).on('click', ".searched-city", function() {
 // Click event for the submit button.
 $(citySubmit).on('click', function (e) {
   if (userCityInput.value.length == 0) {
-    console.log("Nothing here")
+    userCityInput.placeholder = "Please enter a city name."
     return
   }
   convertString()
@@ -290,7 +290,7 @@ $(citySubmit).on('click', function (e) {
   getFiveDay()
 
   userCityInput.value = ""
-  userCityInput.placeholder = "If no information appears, city not found."
+  userCityInput.placeholder = "City not found."
   cityName.textContent = ""
 })
 
