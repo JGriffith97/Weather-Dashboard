@@ -1,12 +1,13 @@
 // API use here, so at least one use of the fetch API script, possibly multiple.
-// May have to use multiple pages.
+require('dotenv').config();
+
 var citiesList = document.getElementById("list-tab")
 var cityWeather = document.getElementById("nav-tabContent")
 var citySubmit = document.getElementById("button-addon2")
 var userCityInput = document.getElementById("user-city")
 var cityName = document.getElementById("cityName")
 
-var APIKey = "6af1e54c068aac1b96a65def32f165a1"
+var APIKey = process.env.WEATHER_API_KEY
 
 var savedCities = [];
 
