@@ -1,6 +1,6 @@
 :root {
   --main-background: #333432;
-  --default-text: antiquewhite;
+  --default-text: white;
   --info-text: white;
   --attention-background: #007bff;
   --attention-hover: #1149c2;
@@ -29,6 +29,12 @@ h1 {
 
 .forecast-header {
   font-size: 26px;
+}
+
+.btn-outline-secondary {
+  color: var(--info-text);
+  background-color: cadetblue;
+  /* Not massively a fan of this color */
 }
 
 .city-name {
@@ -130,6 +136,12 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 
 .list-group-item-action:active, .list-group-item-action:focus {
   background-color: #007bff;
+}
+
+.border-dark {
+  border-color: white !important;
+  /* !important overrides all previous rules for the same property on the element.
+  Including any rule also marked with !important. */
 }
 
 .col-12 {
