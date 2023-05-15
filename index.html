@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <!-- Planning to do some bootstrap media queries/breakpoints.
+       https://getbootstrap.com/docs/5.0/layout/breakpoints/
+       https://getbootstrap.com/docs/5.0/layout/containers/ for reference -->
+
+  <!-- For columns via bootstrap, col-sm-12 would be full width for the small breakpoint
+       Rows work with the same line of thought, with some more specificity
+       https://getbootstrap.com/docs/5.0/layout/gutters/#row-columns-gutters -->
+
   <head>
     <title>Weather Dashboard</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="stylesheet" href="/Assets/css/reset.css"/>
+      <link rel="stylesheet" href="./assets/css/reset.css"/>
       <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       />
-      <link rel="stylesheet" href="/assets/css/style.css"/>
+      <link rel="stylesheet" href="./assets/css/style.css"/>
   </head>
 
     <body>
@@ -18,7 +26,7 @@
         <h1>Weather Dashboard</h1>
       </header>
 
-      <div class="container.fluid p-1 m-4">
+      <div class="global-container p-1 m-4">
         <div class="row align-middle">
 
           <div class="d-block input-group-append col-3">
@@ -139,6 +147,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
   </body>
 </html>
