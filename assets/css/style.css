@@ -8,6 +8,7 @@
 }
 
 /* TODO: Add page responsiveness, either via personal CSS or Bootstrap */
+/* 'Mostly' working to do this via bootstrap right now. Where override where I feel appropriate */
 
 header {
   display: flex;
@@ -34,7 +35,7 @@ h1 {
 .btn-outline-secondary {
   color: var(--info-text);
   background-color: cadetblue;
-  /* Not massively a fan of this color */
+  /* FOR LATER: Not massively a fan of this color */
 }
 
 .city-name {
@@ -99,6 +100,7 @@ img {
 
 /* The two below styles are scss overrides from the reboot.scss bootstrap file. 
 Easiest way I could get at them was just to pull them down from the console. */
+/* Could also potentially override these with !important */
 a:not([href]):not([tabindex]) {
   color: white;
   cursor: pointer
