@@ -30,6 +30,7 @@ var dayPlus4 = moment().add(4, 'days').format("L");
 var dayPlus5 = moment().add(5, 'days').format("L");
 
 function convertDivString() {
+  // Trims errant before/after input, splits words into an array where there are spaces, then joins words into a string concatenated by a '+' sign, then converts it to lowercase
   divString = divText.trim().split(" ").join("+").toLowerCase()
 }
 
@@ -133,19 +134,24 @@ function getFiveDayExisting(grabForecastUrl) {
 
 function getCurrentWeather(grabCurrentUrl) {
   var grabCurrentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&units=imperial" + "&appid=" + APIKey
-// https://api.openweathermap.org/data/2.5/weather?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
+  // An example of the API call with West Jordan as the city entered via userInput with the API key at the end
+  // https://api.openweathermap.org/data/2.5/weather?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
 
-// Probably want to write new functions in the event you're clicking existing cities.
-// This way no new lines are created for existing cities.
+  // Probably want to write new functions in the event you're clicking existing cities.
+  // This way no new lines are created for existing cities.
+
+  // Fetch API via the above variable as the request and return response as JSON if city is found
   fetch(grabCurrentUrl)
   .then(function (response) {
     if (response.status === 404) {
+      // If city not found, log to console
       console.log("City not found!")
     }
     return response.json();
   })
   .then (function (data) {
+    // Logs the entire response object for view in dev console
     console.log(data);
 
     var temperature = document.getElementById("temp-span")
@@ -171,6 +177,7 @@ function getCurrentWeather(grabCurrentUrl) {
     windy.textContent = data.wind.speed + " MPH"
     humid.textContent = data.main.humidity + "%"
 
+    // Grabs the coordinates latitude and longitude from the grabCurrentUrl variable's API call.
     grabOneCall = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&units=imperial" + "&appid=" + APIKey
 
     fetch(grabOneCall)
@@ -209,6 +216,7 @@ function getCurrentWeather(grabCurrentUrl) {
 function getFiveDay(grabForecastUrl) {
   var grabForecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + userInput + "&units=imperial" + "&appid=" + APIKey
 
+// For ease of api navigation
 // https://api.openweathermap.org/data/2.5/forecast?q=west+jordan&units=imperial&appid=6af1e54c068aac1b96a65def32f165a1
 
   fetch(grabForecastUrl)
@@ -271,15 +279,20 @@ function loadCities() {
 
 // Three parameters, click, the dynamic element that would be selected, the function.
 $(citiesList).on('click', ".searched-city", function() {
+  // Upon clicking a previously searched city, runs the following functions
+  // divText global variable is assigned as follows via jQuery
   divText = $(this).text()
-  console.log(divText)
   convertDivString()
   getCurrentWeatherExisting()
   getFiveDayExisting()
+  // Console logs the city name, as this *should* be the text present within the div.
+  console.log(divText)
 })
 
 // Click event for the submit button.
 $(citySubmit).on('click', function (e) {
+  // If no input, placeholder changes to highlight this.
+  // Could use a prompt for this type of thing instead, but prompts can be rather impeding.
   if (userCityInput.value.length == 0) {
     userCityInput.placeholder = "Please enter a city name."
     return
@@ -289,8 +302,15 @@ $(citySubmit).on('click', function (e) {
   getCurrentWeather()
   getFiveDay()
 
+  // Resets the input area after the button is clicked, and returns the placeholder to it's original value.
+  // The placeholder was originally intended to change to 'city not found', however it would do this regardless of
+  // whether a city was found or not, so I've changed it back.
+
+  // In order for this to work as intended, it would most likely have to called within a different function that recognizes
+  // if a city was found or not via the API call. This is not majorly important however.
+
   userCityInput.value = ""
-  userCityInput.placeholder = "City not found."
+  userCityInput.placeholder = "City"
   cityName.textContent = ""
 })
 
