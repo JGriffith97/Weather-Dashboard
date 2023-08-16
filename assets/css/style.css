@@ -8,7 +8,7 @@
 }
 
 /* TODO: Add page responsiveness, either via personal CSS or Bootstrap */
-/* 'Mostly' working to do this via bootstrap right now. Where override where I feel appropriate */
+/* 'Mostly' working to do this via bootstrap right now. Will override where I feel appropriate */
 
 header {
   display: flex;
